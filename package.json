@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@netlify/blobs": "^10.7.9",
     "buffer": "^6.0.3",
     "pix-utils": "^2.8.2",
     "qrcode": "^1.5.4",

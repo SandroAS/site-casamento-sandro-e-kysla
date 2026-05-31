@@ -28,60 +28,234 @@
   },
   "gifts": [
     {
-      "id": "geladeira",
-      "title": "Geladeira frost free",
-      "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc7?w=600&h=400&fit=crop",
-      "totalValue": 3500,
-      "quotaCount": 7,
+      "id": "sofa",
+      "title": "Sofá",
+      "image": "/images/gifts/sofa.jpg",
+      "totalValue": 2500,
+      "quotaCount": 10
+    },
+    {
+      "id": "tabua-madeira",
+      "title": "Kit de tábuas de madeira",
+      "image": "/images/gifts/tabua-madeira.jpg",
+      "totalValue": 189,
+      "quotaCount": 2,
       "quotas": [
-        { "id": "geladeira-1", "value": 500, "status": "available" },
-        { "id": "geladeira-2", "value": 500, "status": "available" },
-        { "id": "geladeira-3", "value": 500, "status": "reserved" },
-        { "id": "geladeira-4", "value": 500, "status": "available" },
-        { "id": "geladeira-5", "value": 500, "status": "available" },
-        { "id": "geladeira-6", "value": 500, "status": "available" },
-        { "id": "geladeira-7", "value": 500, "status": "paid" }
+        { "id": "tabua-madeira-1", "value": 94.5, "status": "available" },
+        { "id": "tabua-madeira-2", "value": 94.5, "status": "available" }
       ]
     },
     {
-      "id": "panelas",
-      "title": "Jogo de panelas antiaderente",
-      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-      "totalValue": 800,
-      "quotaCount": 4
+      "id": "aspirador",
+      "title": "Aspirador de pó",
+      "image": "/images/gifts/aspirador.jpg",
+      "totalValue": 260,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "aspirador-1", "value": 130, "status": "available" },
+        { "id": "aspirador-2", "value": 130, "status": "available" }
+      ]
+    },
+    {
+      "id": "ferro",
+      "title": "Ferro de passar roupa",
+      "image": "/images/gifts/ferro.jpg",
+      "totalValue": 200,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "ferro-1", "value": 100, "status": "available" },
+        { "id": "ferro-2", "value": 100, "status": "available" }
+      ]
+    },
+    {
+      "id": "batedeira",
+      "title": "Batedeira",
+      "image": "/images/gifts/batedeira.jpg",
+      "totalValue": 420,
+      "quotaCount": 3,
+      "quotas": [
+        { "id": "batedeira-1", "value": 140, "status": "available" },
+        { "id": "batedeira-2", "value": 140, "status": "available" },
+        { "id": "batedeira-3", "value": 140, "status": "available" }
+      ]
+    },
+    {
+      "id": "misteira",
+      "title": "Misteira",
+      "image": "/images/gifts/misteira.jpg",
+      "totalValue": 130,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "misteira-1", "value": 65, "status": "available" },
+        { "id": "misteira-2", "value": 65, "status": "available" }
+      ]
+    },
+    {
+      "id": "tabua-inox",
+      "title": "Tábua de inox",
+      "image": "/images/gifts/tabua-inox.jpg",
+      "totalValue": 110,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "tabua-inox-1", "value": 55, "status": "available" },
+        { "id": "tabua-inox-2", "value": 55, "status": "available" }
+      ]
+    },
+    {
+      "id": "talher-churrasco",
+      "title": "Jogo de talher para churrasco",
+      "image": "/images/gifts/talher-churrasco.jpg",
+      "totalValue": 120,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "talher-churrasco-1", "value": 60, "status": "available" },
+        { "id": "talher-churrasco-2", "value": 60, "status": "available" }
+      ]
     },
     {
       "id": "cafeteira",
       "title": "Cafeteira elétrica",
-      "image": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&h=400&fit=crop",
-      "totalValue": 450,
-      "quotaCount": 3,
+      "image": "/images/gifts/cafeteira.jpg",
+      "totalValue": 290,
+      "quotaCount": 2,
       "quotas": [
-        { "id": "cafeteira-1", "value": 150, "status": "available" },
-        { "id": "cafeteira-2", "value": 150, "status": "available" },
-        { "id": "cafeteira-3", "value": 150, "status": "paid" }
+        { "id": "cafeteira-1", "value": 145, "status": "available" },
+        { "id": "cafeteira-2", "value": 145, "status": "available" }
       ]
     },
     {
-      "id": "lua-de-mel",
-      "title": "Contribuição para lua de mel",
-      "image": "https://images.unsplash.com/photo-1527631746868-d7e4b3a9f936?w=600&h=400&fit=crop",
+      "id": "assadeiras",
+      "title": "Jogo de assadeiras",
+      "image": "/images/gifts/assadeiras.jpg",
+      "totalValue": 75,
+      "quotaCount": 1,
+      "quotas": [
+        { "id": "assadeiras-1", "value": 75, "status": "available" }
+      ]
+    },
+    {
+      "id": "pratos-risoto",
+      "title": "Conjunto de pratos de risoto",
+      "image": "/images/gifts/pratos-risoto.jpg",
+      "totalValue": 250,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "pratos-risoto-1", "value": 125, "status": "available" },
+        { "id": "pratos-risoto-2", "value": 125, "status": "available" }
+      ]
+    },
+    {
+      "id": "copos",
+      "title": "Conjunto de copos",
+      "image": "/images/gifts/copos.jpg",
+      "totalValue": 145,
+      "quotaCount": 1,
+      "quotas": [
+        { "id": "copos-1", "value": 145, "status": "available" }
+      ]
+    },
+    {
+      "id": "espatulas-silicone",
+      "title": "Kit de espátulas de silicone",
+      "image": "/images/gifts/espatulas-silicone.jpg",
+      "totalValue": 130,
+      "quotaCount": 2,
+      "quotas": [
+        { "id": "espatulas-silicone-1", "value": 65, "status": "available" },
+        { "id": "espatulas-silicone-2", "value": 65, "status": "available" }
+      ]
+    },
+    {
+      "id": "lava-louca",
+      "title": "Lava-louças",
+      "image": "/images/gifts/lava-louca.jpg",
+      "totalValue": 3500,
+      "quotaCount": 7,
+      "quotas": [
+        { "id": "lava-louca-1", "value": 500, "status": "available" },
+        { "id": "lava-louca-2", "value": 500, "status": "available" },
+        { "id": "lava-louca-3", "value": 500, "status": "available" },
+        { "id": "lava-louca-4", "value": 500, "status": "available" },
+        { "id": "lava-louca-5", "value": 500, "status": "available" },
+        { "id": "lava-louca-6", "value": 500, "status": "available" },
+        { "id": "lava-louca-7", "value": 500, "status": "available" }
+      ]
+    },
+    {
+      "id": "sushi-bambu",
+      "title": "Jogo de sushi em bambu",
+      "image": "/images/gifts/sushi-bambu.jpg",
+      "totalValue": 60,
+      "quotaCount": 1,
+      "quotas": [
+        { "id": "sushi-bambu-1", "value": 60, "status": "available" }
+      ]
+    },
+    {
+      "id": "queijeira",
+      "title": "Queijeira",
+      "image": "/images/gifts/queijeira.jpg",
+      "totalValue": 80,
+      "quotaCount": 1,
+      "quotas": [
+        { "id": "queijeira-1", "value": 80, "status": "available" }
+      ]
+    },
+    {
+      "id": "ninja-creami",
+      "title": "Ninja Creami — sorveteira fit",
+      "image": "/images/gifts/ninja-creami.jpg",
       "totalValue": 2000,
-      "quotaCount": 10
+      "quotaCount": 10,
+      "quotas": [
+        { "id": "ninja-creami-1", "value": 200, "status": "available" },
+        { "id": "ninja-creami-2", "value": 200, "status": "available" },
+        { "id": "ninja-creami-3", "value": 200, "status": "available" },
+        { "id": "ninja-creami-4", "value": 200, "status": "available" },
+        { "id": "ninja-creami-5", "value": 200, "status": "available" },
+        { "id": "ninja-creami-6", "value": 200, "status": "available" },
+        { "id": "ninja-creami-7", "value": 200, "status": "available" },
+        { "id": "ninja-creami-8", "value": 200, "status": "available" },
+        { "id": "ninja-creami-9", "value": 200, "status": "available" },
+        { "id": "ninja-creami-10", "value": 200, "status": "available" }
+      ]
     },
     {
-      "id": "jogo-cama",
-      "title": "Jogo de cama king",
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
-      "totalValue": 600,
-      "quotaCount": 6
+      "id": "toalhas",
+      "title": "Kit de toalhas",
+      "image": "/images/gifts/toalhas.jpg",
+      "totalValue": 330,
+      "quotaCount": 3,
+      "quotas": [
+        { "id": "toalhas-1", "value": 110, "status": "available" },
+        { "id": "toalhas-2", "value": 110, "status": "available" },
+        { "id": "toalhas-3", "value": 110, "status": "available" }
+      ]
     },
     {
-      "id": "microondas",
-      "title": "Micro-ondas",
-      "image": "https://images.unsplash.com/photo-1585659722983-1f0d1cb0f40b?w=600&h=400&fit=crop",
-      "totalValue": 700,
-      "quotaCount": 7
+      "id": "aparelho-jantar",
+      "title": "Aparelho de jantar de cerâmica",
+      "image": "/images/gifts/aparelho-jantar.jpg",
+      "totalValue": 560,
+      "quotaCount": 4,
+      "quotas": [
+        { "id": "aparelho-jantar-1", "value": 140, "status": "available" },
+        { "id": "aparelho-jantar-2", "value": 140, "status": "available" },
+        { "id": "aparelho-jantar-3", "value": 140, "status": "available" },
+        { "id": "aparelho-jantar-4", "value": 140, "status": "available" }
+      ]
+    },
+    {
+      "id": "travessa-ceramica",
+      "title": "Jogo de travessa cerâmica",
+      "image": "/images/gifts/travessa-ceramica.jpg",
+      "totalValue": 390,
+      "quotaCount": 3,
+      "quotas": [
+        { "id": "travessa-ceramica-1", "value": 130, "status": "available" },
+        { "id": "travessa-ceramica-2", "value": 130, "status": "available" },
+        { "id": "travessa-ceramica-3", "value": 130, "status": "available" }
+      ]
     }
   ]
 }
