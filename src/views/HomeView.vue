@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection.vue'
 import EventSection from '../components/EventSection.vue'
 import GiftGrid from '../components/GiftGrid.vue'
 import FreePixSection from '../components/FreePixSection.vue'
+import RsvpSection from '../components/RsvpSection.vue'
 import QuotaPixModal from '../components/QuotaPixModal.vue'
 import AppFooter from '../components/AppFooter.vue'
 
@@ -43,6 +44,7 @@ function closeModal() {
         <EventSection :couple="siteData.couple" :event="siteData.event" />
         <GiftGrid :gifts="siteData.gifts" @contribute="openModal" />
         <FreePixSection :pix-config="siteData.pix" :contact="siteData.contact" />
+        <RsvpSection />
       </main>
 
       <AppFooter :couple="siteData.couple" :event="siteData.event" />

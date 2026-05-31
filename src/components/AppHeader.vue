@@ -4,6 +4,7 @@ const links = [
   { href: '#evento', label: 'O casamento' },
   { href: '#presentes', label: 'Presentes' },
   { href: '#pix', label: 'PIX' },
+  { href: '#confirmacao', label: 'Confirmação' },
 ]
 </script>
 

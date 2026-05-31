@@ -13,7 +13,8 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const selectedQuota = ref(null)
+const selectedQuotas = ref([])
+const pixGenerated = ref(false)
 const pixConfigRef = computed(() => props.pixConfig)
 const { qrDataUrl, pixError, generating, generatePix, copyBrCode, copyKey, resetPix } =
   usePix(pixConfigRef)
@@ -21,6 +22,25 @@ const { qrDataUrl, pixError, generating, generatePix, copyBrCode, copyKey, reset
 const availableQuotas = computed(() => {
   if (!props.gift) return []
   return props.gift.quotas.filter((q) => q.status === 'available')
+})
+
+const selectedTotal = computed(() =>
+  selectedQuotas.value.reduce((sum, q) => sum + q.value, 0),
+)
+
+const selectedCount = computed(() => selectedQuotas.value.length)
+
+const selectedLabel = computed(() => {
+  if (selectedCount.value === 0) return ''
+  if (selectedCount.value === 1) {
+    const num = selectedQuotas.value[0].id.split('-').pop()
+    return `cota ${num}`
+  }
+  const nums = selectedQuotas.value
+    .map((q) => q.id.split('-').pop())
+    .sort((a, b) => Number(a) - Number(b))
+    .join(', ')
+  return `cotas ${nums}`
 })
 
 const whatsappUrl = computed(() => {
@@ -33,20 +53,64 @@ watch(
   () => props.open,
   (isOpen) => {
     if (!isOpen) {
-      selectedQuota.value = null
+      selectedQuotas.value = []
+      pixGenerated.value = false
       resetPix()
     }
   },
 )
 
-async function selectQuota(quota) {
-  selectedQuota.value = quota
-  const desc = `Presente: ${props.gift.title}`.slice(0, 72)
+function isSelected(quota) {
+  return selectedQuotas.value.some((q) => q.id === quota.id)
+}
+
+function toggleQuota(quota) {
+  if (isSelected(quota)) {
+    selectedQuotas.value = selectedQuotas.value.filter((q) => q.id !== quota.id)
+  } else {
+    selectedQuotas.value = [...selectedQuotas.value, quota]
+  }
+}
+
+function buildTxid(quotas) {
+  const base = props.gift.id.replace(/[^a-zA-Z0-9]/g, '')
+  const nums = quotas
+    .map((q) => q.id.split('-').pop())
+    .sort((a, b) => Number(a) - Number(b))
+    .join('')
+  return `${base}${nums}`.slice(0, 25)
+}
+
+function buildDescription(quotas) {
+  const title = `Presente: ${props.gift.title}`
+  if (quotas.length === 1) return title.slice(0, 72)
+
+  const nums = quotas
+    .map((q) => q.id.split('-').pop())
+    .sort((a, b) => Number(a) - Number(b))
+    .join(', ')
+  return `${title} (${nums})`.slice(0, 72)
+}
+
+async function confirmSelection() {
+  if (selectedQuotas.value.length === 0) return
+
+  const quotas = [...selectedQuotas.value].sort(
+    (a, b) => Number(a.id.split('-').pop()) - Number(b.id.split('-').pop()),
+  )
+
   await generatePix({
-    amount: quota.value,
-    description: desc,
-    txid: quota.id.replace(/[^a-zA-Z0-9]/g, '').slice(0, 25),
+    amount: quotas.reduce((sum, q) => sum + q.value, 0),
+    description: buildDescription(quotas),
+    txid: buildTxid(quotas),
   })
+
+  pixGenerated.value = true
+}
+
+function backToSelection() {
+  pixGenerated.value = false
+  resetPix()
 }
 
 function close() {
@@ -80,28 +144,83 @@ function close() {
         <h3 class="pr-8 font-serif text-2xl text-olive-dark">{{ gift.title }}</h3>
         <p class="mt-1 text-stone-600">Valor total: {{ formatCurrency(gift.totalValue) }}</p>
 
-        <template v-if="!selectedQuota">
-          <p class="mt-6 text-sm text-stone-600">Selecione uma cota disponível:</p>
+        <template v-if="!pixGenerated">
+          <p class="mt-6 text-sm text-stone-600">
+            Selecione uma ou mais cotas disponíveis:
+          </p>
           <ul class="mt-3 space-y-2">
             <li v-for="quota in availableQuotas" :key="quota.id">
               <button
                 type="button"
-                class="w-full cursor-pointer rounded-xl border border-olive/30 px-4 py-3 text-left transition hover:border-olive hover:bg-olive/5"
-                @click="selectQuota(quota)"
+                class="flex w-full cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 text-left transition"
+                :class="
+                  isSelected(quota)
+                    ? 'border-olive bg-olive/10'
+                    : 'border-olive/30 hover:border-olive hover:bg-olive/5'
+                "
+                :aria-pressed="isSelected(quota)"
+                @click="toggleQuota(quota)"
               >
-                <span class="font-medium text-olive-dark">{{ formatCurrency(quota.value) }}</span>
-                <span class="ml-2 text-xs text-stone-500">— Cota {{ quota.id.split('-').pop() }}</span>
+                <span
+                  class="flex h-5 w-5 shrink-0 items-center justify-center rounded border transition"
+                  :class="
+                    isSelected(quota)
+                      ? 'border-olive bg-olive text-white'
+                      : 'border-olive/40 bg-white'
+                  "
+                  aria-hidden="true"
+                >
+                  <svg
+                    v-if="isSelected(quota)"
+                    class="h-3 w-3"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="font-medium text-olive-dark">{{ formatCurrency(quota.value) }}</span>
+                  <span class="ml-2 text-xs text-stone-500">— Cota {{ quota.id.split('-').pop() }}</span>
+                </span>
               </button>
             </li>
           </ul>
           <p v-if="availableQuotas.length === 0" class="mt-4 text-stone-500">
             Não há cotas disponíveis no momento.
           </p>
+
+          <div
+            v-if="selectedCount > 0"
+            class="mt-5 rounded-xl border border-olive/20 bg-white p-4"
+          >
+            <p class="text-sm text-stone-600">
+              {{ selectedCount }} {{ selectedCount === 1 ? 'cota selecionada' : 'cotas selecionadas' }}
+              ({{ selectedLabel }})
+            </p>
+            <p class="mt-1 text-lg font-medium text-olive-dark">
+              Total: {{ formatCurrency(selectedTotal) }}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="mt-5 w-full cursor-pointer rounded-full bg-olive py-3 text-sm tracking-wide text-white transition hover:bg-olive-dark disabled:cursor-not-allowed disabled:opacity-50"
+            :disabled="selectedCount === 0"
+            @click="confirmSelection"
+          >
+            {{ selectedCount === 0 ? 'Selecione ao menos uma cota' : 'Confirmar e gerar PIX' }}
+          </button>
         </template>
 
         <template v-else>
           <p class="mt-6 text-center text-lg font-medium text-olive-dark">
-            Pague {{ formatCurrency(selectedQuota.value) }} via PIX
+            Pague {{ formatCurrency(selectedTotal) }} via PIX
+          </p>
+          <p class="mt-1 text-center text-sm text-stone-500">
+            {{ selectedCount === 1 ? '1 cota' : `${selectedCount} cotas` }} ({{ selectedLabel }})
           </p>
 
           <div v-if="generating" class="mt-8 text-center text-stone-500">Gerando QR Code…</div>
@@ -129,15 +248,16 @@ function close() {
           <button
             type="button"
             class="mt-4 w-full cursor-pointer text-sm text-olive underline"
-            @click="selectedQuota = null"
+            @click="backToSelection"
           >
-            Escolher outra cota
+            Escolher outras cotas
           </button>
 
           <div class="mt-6 rounded-xl border border-olive/20 bg-white p-4 text-sm text-stone-600">
             <p>
-              Após o pagamento, envie o comprovante para os noivos. Eles marcarão a cota como
-              reservada ou paga no arquivo de configuração do site.
+              Após o pagamento, envie o comprovante para os noivos. Eles confirmarão o pagamento
+              {{ selectedCount === 1 ? 'da cota selecionada' : 'das cotas selecionadas' }} no
+              arquivo de configuração do site.
             </p>
             <a
               v-if="whatsappUrl"
