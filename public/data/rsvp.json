@@ -2,9 +2,9 @@
   "guests": [
     { "id": "guest-01", "name": "Sandro Antônio Souza", "status": "pending" },
     { "id": "guest-02", "name": "Kysla Maria", "status": "pending" },
-    { "id": "guest-03", "name": "Kênia Kristiane", "status": "pending" },
+    { "id": "guest-03", "name": "Kênia Cristiane", "status": "pending" },
     { "id": "guest-04", "name": "Túlio César", "status": "pending" },
-    { "id": "guest-05", "name": "Karen Karonlin", "status": "pending" },
+    { "id": "guest-05", "name": "Karen Karonline", "status": "pending" },
     { "id": "guest-06", "name": "Kevin Kelton", "status": "pending" },
     { "id": "guest-07", "name": "Sônia Santos", "status": "pending" },
     { "id": "guest-08", "name": "Nelsergio Carlos", "status": "pending" },
