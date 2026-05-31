@@ -1,0 +1,87 @@
+{
+  "couple": {
+    "names": "Sandro e Kysla",
+    "displayNames": { "groom": "Sandro", "bride": "Kysla" }
+  },
+  "event": {
+    "date": "2026-08-16",
+    "dateLabel": "16 de agosto de 2026",
+    "dateDisplay": "16 | AGOSTO | 2026",
+    "time": "16:00",
+    "timeLabel": "16 horas",
+    "venue": "Garden Eventos",
+    "city": "Conselheiro Lafaiete",
+    "mapsUrl": "https://maps.google.com/?q=Garden+Eventos+Conselheiro+Lafaiete",
+    "heroImage": "/images/save-the-date.png"
+  },
+  "pix": {
+    "key": "31998136678",
+    "keyDisplay": "(31) 99813-6678",
+    "keyType": "phone",
+    "beneficiaryName": "Sandro Antônio Souza",
+    "city": "Lafaiete",
+    "descriptionDefault": "Presente de casamento"
+  },
+  "contact": {
+    "whatsapp": "5531998136678",
+    "whatsappMessage": "Olá! Enviei o PIX do presente de casamento. Segue o comprovante:"
+  },
+  "gifts": [
+    {
+      "id": "geladeira",
+      "title": "Geladeira frost free",
+      "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc7?w=600&h=400&fit=crop",
+      "totalValue": 3500,
+      "quotaCount": 7,
+      "quotas": [
+        { "id": "geladeira-1", "value": 500, "status": "available" },
+        { "id": "geladeira-2", "value": 500, "status": "available" },
+        { "id": "geladeira-3", "value": 500, "status": "reserved" },
+        { "id": "geladeira-4", "value": 500, "status": "available" },
+        { "id": "geladeira-5", "value": 500, "status": "available" },
+        { "id": "geladeira-6", "value": 500, "status": "available" },
+        { "id": "geladeira-7", "value": 500, "status": "paid" }
+      ]
+    },
+    {
+      "id": "panelas",
+      "title": "Jogo de panelas antiaderente",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
+      "totalValue": 800,
+      "quotaCount": 4
+    },
+    {
+      "id": "cafeteira",
+      "title": "Cafeteira elétrica",
+      "image": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&h=400&fit=crop",
+      "totalValue": 450,
+      "quotaCount": 3,
+      "quotas": [
+        { "id": "cafeteira-1", "value": 150, "status": "available" },
+        { "id": "cafeteira-2", "value": 150, "status": "available" },
+        { "id": "cafeteira-3", "value": 150, "status": "paid" }
+      ]
+    },
+    {
+      "id": "lua-de-mel",
+      "title": "Contribuição para lua de mel",
+      "image": "https://images.unsplash.com/photo-1527631746868-d7e4b3a9f936?w=600&h=400&fit=crop",
+      "totalValue": 2000,
+      "quotaCount": 10
+    },
+    {
+      "id": "jogo-cama",
+      "title": "Jogo de cama king",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
+      "totalValue": 600,
+      "quotaCount": 6
+    },
+    {
+      "id": "microondas",
+      "title": "Micro-ondas",
+      "image": "https://images.unsplash.com/photo-1585659722983-1f0d1cb0f40b?w=600&h=400&fit=crop",
+      "totalValue": 700,
+      "quotaCount": 7
+    }
+  ]
+}
