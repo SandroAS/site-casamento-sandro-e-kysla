@@ -4,9 +4,10 @@ defineProps({
   event: { type: Object, required: true },
 })
 
-const photoPlaceholders = [
-  { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=500&fit=crop', alt: 'Foto do casal 1' },
-  { src: 'https://images.unsplash.com/photo-1522673607200-83623ebb0c0e?w=400&h=500&fit=crop', alt: 'Foto do casal 2' },
+const photos = [
+  { src: '/images/casal/casal-1.jpg', alt: 'Sandro e Kysla na praia' },
+  { src: '/images/casal/casal-2.jpg', alt: 'Noivado na praia' },
+  { src: '/images/casal/casal-3.jpg', alt: 'Pedido de casamento na praia' },
 ]
 </script>
 
@@ -23,16 +24,13 @@ const photoPlaceholders = [
 
       <div class="mt-10 flex justify-center gap-4">
         <div
-          v-for="(photo, i) in photoPlaceholders"
+          v-for="(photo, i) in photos"
           :key="i"
           class="h-40 w-28 overflow-hidden rounded-lg border border-olive/20 sm:h-52 sm:w-36"
         >
           <img :src="photo.src" :alt="photo.alt" class="h-full w-full object-cover" loading="lazy" />
         </div>
       </div>
-      <p class="mt-3 text-center text-xs text-stone-400">
-        Substitua estas fotos em <code class="text-olive">public/images/</code>
-      </p>
 
       <div
         class="mx-auto mt-12 max-w-lg rounded-2xl border border-olive/25 bg-cream p-8 text-center"
