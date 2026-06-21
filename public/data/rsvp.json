@@ -1,7 +1,7 @@
 {
   "guests": [
-    { "id": "guest-01", "name": "Sandro Antônio Souza", "status": "pending" },
-    { "id": "guest-02", "name": "Kysla Maria", "status": "pending" },
+    { "id": "guest-01", "name": "Sandro Antônio Souza", "status": "confirmed" },
+    { "id": "guest-02", "name": "Kysla Maria", "status": "confirmed" },
     { "id": "guest-03", "name": "Kênia Cristiane", "status": "pending" },
     { "id": "guest-04", "name": "Túlio César", "status": "pending" },
     { "id": "guest-05", "name": "Karen Karonline", "status": "pending" },
@@ -69,7 +69,7 @@
     { "id": "guest-60", "name": "Diego Moreira", "status": "pending" },
     { "id": "guest-61", "name": "Beatriz Azalim", "status": "pending" },
     { "id": "guest-63", "name": "Tais Alves", "status": "pending" },
-    { "id": "guest-64", "name": "Wanderson Alves", "status": "pending" },
-    { "id": "guest-65", "name": "Acompanhante do Wanderson", "status": "pending" }
+    { "id": "guest-64", "name": "Wanderson Alves", "status": "declined" },
+    { "id": "guest-65", "name": "Acompanhante do Wanderson", "status": "declined" }
   ]
 }

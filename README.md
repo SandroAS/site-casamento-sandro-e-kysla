@@ -1,6 +1,6 @@
-# Site de casamento — Sandro e Kysla
+# Site de casamento — Kysla e Sandro
 
-Site estático em Vue 3 + Tailwind para divulgar o casamento, lista de presentes em cotas e pagamento via PIX.
+Site estático em Vue 3 + Tailwind para divulgar o casamento, lista de presentes em cotas, confirmação de presença e pagamento via PIX.
 
 ## Desenvolvimento
 
@@ -60,6 +60,46 @@ Exemplo:
 ```json
 { "id": "geladeira-1", "value": 500, "status": "paid" }
 ```
+
+### Lista de convidados e confirmação de presença
+
+A lista fica em **`public/data/rsvp.json`**. Os convidados usam os botões do site para abrir o WhatsApp e avisar os noivos; **você atualiza o `status` manualmente** após receber a mensagem.
+
+#### Adicionar ou editar um convidado
+
+```json
+{
+  "id": "guest-66",
+  "name": "Nome Completo",
+  "status": "pending"
+}
+```
+
+- `id` — identificador único (ex.: `guest-66`, `guest-14-1`)
+- `name` — nome exibido no site
+- `status` — situação da confirmação (veja abaixo)
+
+#### Status possíveis
+
+| Status | Significado | Exibição no site |
+|--------|-------------|------------------|
+| `"pending"` | Ainda não confirmou nem desistiu | Pendente |
+| `"confirmed"` | Vai comparecer | Confirmado |
+| `"declined"` | Não vai comparecer | Não vai |
+
+Exemplo após confirmar alguém pelo WhatsApp:
+
+```json
+{ "id": "guest-05", "name": "Karen Karonline", "status": "confirmed" }
+```
+
+Exemplo de desistência:
+
+```json
+{ "id": "guest-12", "name": "Marcelo Araujo", "status": "declined" }
+```
+
+Depois de editar, faça commit e push — o Netlify publica a lista atualizada.
 
 ### Imagens
 

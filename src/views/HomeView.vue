@@ -44,7 +44,7 @@ function closeModal() {
         <EventSection :couple="siteData.couple" :event="siteData.event" />
         <GiftGrid :gifts="siteData.gifts" @contribute="openModal" />
         <FreePixSection :pix-config="siteData.pix" :contact="siteData.contact" />
-        <RsvpSection />
+        <RsvpSection :contact="siteData.contact" />
       </main>
 
       <AppFooter :couple="siteData.couple" :event="siteData.event" />

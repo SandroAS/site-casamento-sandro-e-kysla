@@ -2,7 +2,11 @@
 import { ref, computed } from 'vue'
 import { useRsvp } from '../composables/useRsvp'
 
-const { guests, loading, saving, error, stats, toggleStatus } = useRsvp()
+const props = defineProps({
+  contact: { type: Object, required: true },
+})
+
+const { guests, loading, error, stats } = useRsvp()
 
 const search = ref('')
 
@@ -23,6 +27,23 @@ const statusClass = {
   confirmed: 'bg-olive/15 text-olive-dark',
   declined: 'bg-stone-200 text-stone-700',
 }
+
+function whatsappUrl(message) {
+  const phone = props.contact.whatsapp.replace(/\D/g, '')
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+}
+
+function confirmUrl(guestName) {
+  return whatsappUrl(
+    `Olá! Gostaria de confirmar presença no casamento para ${guestName}.`,
+  )
+}
+
+function declineUrl(guestName) {
+  return whatsappUrl(
+    `Olá! Gostaria de informar que não poderei comparecer ao casamento (convidado: ${guestName}).`,
+  )
+}
 </script>
 
 <template>
@@ -32,8 +53,8 @@ const statusClass = {
         Confirmação de presença
       </h2>
       <p class="mx-auto mt-4 max-w-2xl text-center text-stone-600">
-        Encontre seu nome na lista e confirme se vai comparecer ao casamento. Você pode
-        alterar a resposta a qualquer momento.
+        Encontre seu nome na lista e envie uma mensagem pelo WhatsApp para confirmar ou
+        desistir da presença. Os noivos atualizarão o status aqui no site.
       </p>
 
       <div v-if="loading" class="mt-12 text-center text-stone-500">Carregando convidados…</div>
@@ -81,42 +102,38 @@ const statusClass = {
             </div>
 
             <div class="flex shrink-0 gap-2">
-              <button
-                type="button"
-                class="cursor-pointer rounded-full px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50"
+              <a
+                :href="confirmUrl(guest.name)"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full px-4 py-2 text-sm transition"
                 :class="
                   guest.status === 'confirmed'
                     ? 'bg-olive text-white'
                     : 'border border-olive/30 text-olive-dark hover:border-olive hover:bg-olive/5'
                 "
-                :disabled="saving"
-                @click="toggleStatus(guest.id, 'confirmed')"
               >
                 Confirmo
-              </button>
-              <button
-                type="button"
-                class="cursor-pointer rounded-full px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50"
+              </a>
+              <a
+                :href="declineUrl(guest.name)"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full px-4 py-2 text-sm transition"
                 :class="
                   guest.status === 'declined'
                     ? 'bg-stone-700 text-white'
                     : 'border border-stone-300 text-stone-700 hover:border-stone-500 hover:bg-stone-50'
                 "
-                :disabled="saving"
-                @click="toggleStatus(guest.id, 'declined')"
               >
                 Não vou
-              </button>
+              </a>
             </div>
           </li>
         </ul>
 
         <p v-if="filteredGuests.length === 0" class="mt-6 text-center text-stone-500">
           Nenhum convidado encontrado com esse nome.
-        </p>
-
-        <p class="mt-8 text-center text-xs text-stone-500">
-          Toque novamente no botão selecionado para voltar ao status pendente.
         </p>
       </template>
     </div>
