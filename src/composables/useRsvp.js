@@ -1,8 +1,11 @@
 import { ref, computed, onMounted } from 'vue'
 
 const RSVP_API = '/.netlify/functions/rsvp'
-const STORAGE_KEY = 'rsvp-guests'
+const STATUS_STORAGE_KEY = 'rsvp-statuses'
+const LEGACY_STORAGE_KEY = 'rsvp-guests'
 const API_TIMEOUT_MS = 3000
+
+const NO_STORE = { cache: 'no-store' }
 
 const guests = ref([])
 const loading = ref(true)
@@ -10,29 +13,59 @@ const saving = ref(false)
 const error = ref(null)
 const usingLocalStorage = ref(false)
 
+function listFingerprint(list) {
+  return list.map((guest) => guest.id).join('|')
+}
+
 async function loadFromJson() {
-  const res = await fetch('/data/rsvp.json')
+  const res = await fetch('/data/rsvp.json', NO_STORE)
   if (!res.ok) throw new Error('Não foi possível carregar a lista de convidados.')
   const data = await res.json()
   return data.guests
 }
 
-function loadFromLocalStorage() {
+function loadStatusesFromLocalStorage(fingerprint) {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored) return JSON.parse(stored)
+    const raw = localStorage.getItem(STATUS_STORAGE_KEY)
+    if (!raw) return {}
+
+    const data = JSON.parse(raw)
+    if (!data?.statuses) return {}
+
+    if (data.fingerprint === fingerprint) return data.statuses
+
+    return data.statuses
+  } catch {
+    return {}
+  }
+}
+
+function saveStatusesToLocalStorage(list, fingerprint) {
+  const statuses = Object.fromEntries(list.map((guest) => [guest.id, guest.status]))
+  localStorage.setItem(
+    STATUS_STORAGE_KEY,
+    JSON.stringify({ fingerprint, statuses }),
+  )
+}
+
+function applyStatuses(seedGuests, statuses) {
+  return seedGuests.map((guest) => ({
+    ...guest,
+    status: statuses[guest.id] ?? guest.status ?? 'pending',
+  }))
+}
+
+function clearLegacyStorage() {
+  try {
+    localStorage.removeItem(LEGACY_STORAGE_KEY)
   } catch {
     /* ignore */
   }
-  return null
-}
-
-function saveToLocalStorage(list) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(list))
 }
 
 async function fetchFromApi() {
   const res = await fetch(RSVP_API, {
+    ...NO_STORE,
     signal: AbortSignal.timeout(API_TIMEOUT_MS),
   })
 
@@ -49,8 +82,12 @@ async function load() {
   loading.value = true
   error.value = null
   usingLocalStorage.value = false
+  clearLegacyStorage()
 
   try {
+    const seed = await loadFromJson()
+    const fingerprint = listFingerprint(seed)
+
     const fromApi = await fetchFromApi()
     if (fromApi) {
       guests.value = fromApi
@@ -58,8 +95,8 @@ async function load() {
     }
 
     usingLocalStorage.value = true
-    const stored = loadFromLocalStorage()
-    guests.value = stored || (await loadFromJson())
+    const statuses = loadStatusesFromLocalStorage(fingerprint)
+    guests.value = applyStatuses(seed, statuses)
   } catch (e) {
     error.value = e.message || 'Não foi possível carregar a lista de convidados.'
     guests.value = []
@@ -83,6 +120,7 @@ async function setStatus(guestId, status) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: guestId, status }),
+        ...NO_STORE,
         signal: AbortSignal.timeout(API_TIMEOUT_MS),
       })
 
@@ -98,7 +136,7 @@ async function setStatus(guestId, status) {
       usingLocalStorage.value = true
     }
 
-    saveToLocalStorage(guests.value)
+    saveStatusesToLocalStorage(guests.value, listFingerprint(guests.value))
   } catch {
     guests.value = previous
     error.value = 'Não foi possível salvar. Tente novamente.'

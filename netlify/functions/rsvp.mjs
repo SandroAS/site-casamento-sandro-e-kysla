@@ -9,6 +9,7 @@ const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
+  'Cache-Control': 'no-store, no-cache, must-revalidate',
 }
 
 const VALID_STATUSES = new Set(['pending', 'confirmed', 'declined'])
@@ -19,13 +20,29 @@ function loadSeedGuests() {
   return data.guests
 }
 
-async function getGuests(store) {
-  const stored = await store.get('guests', { type: 'json' })
-  if (stored?.length) return stored
+function mergeGuests(seed, stored) {
+  const statusById = new Map((stored || []).map((guest) => [guest.id, guest.status]))
 
+  return seed.map((guest) => ({
+    ...guest,
+    status: statusById.get(guest.id) ?? guest.status ?? 'pending',
+  }))
+}
+
+function guestIds(list) {
+  return list.map((guest) => guest.id).join('|')
+}
+
+async function getGuests(store) {
   const seed = loadSeedGuests()
-  await store.setJSON('guests', seed)
-  return seed
+  const stored = await store.get('guests', { type: 'json' })
+  const merged = mergeGuests(seed, stored)
+
+  if (!stored?.length || guestIds(merged) !== guestIds(stored)) {
+    await store.setJSON('guests', merged)
+  }
+
+  return merged
 }
 
 export default async (req) => {
