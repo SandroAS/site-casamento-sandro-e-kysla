@@ -5,7 +5,7 @@ defineProps({
 })
 
 const photos = [
-  { src: '/images/casal/casal-1.jpg', alt: 'Sandro e Kysla na praia' },
+  { src: '/images/casal/casal-1.jpg', alt: 'Kysla e Sandro na praia' },
   { src: '/images/casal/casal-2.jpg', alt: 'Noivado na praia' },
   { src: '/images/casal/casal-3.jpg', alt: 'Pedido de casamento na praia' },
 ]
@@ -18,7 +18,7 @@ const photos = [
         O casamento
       </h2>
       <p class="mx-auto mt-4 max-w-xl text-center text-stone-600">
-        Com muita alegria, {{ couple.displayNames.groom }} e {{ couple.displayNames.bride }}
+        Com muita alegria, {{ couple.displayNames.bride }} e {{ couple.displayNames.groom }}
         convidam você para celebrar este momento especial conosco.
       </p>
 

@@ -42,7 +42,7 @@ onUnmounted(() => {
     class="fixed top-0 right-0 left-0 z-50 border-b border-stone-200/80 bg-cream/90 backdrop-blur-sm"
   >
     <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 md:justify-center">
-      <span class="font-serif text-sm text-olive-dark md:hidden">Sandro &amp; Kysla</span>
+      <span class="font-serif text-sm text-olive-dark md:hidden">Kysla &amp; Sandro</span>
 
       <button
         type="button"

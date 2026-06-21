@@ -57,6 +57,8 @@
     { "id": "guest-51", "name": "Iago", "status": "pending" },
     { "id": "guest-52", "name": "Bruna Fonseca", "status": "pending" },
     { "id": "guest-53", "name": "João Marcos Milagres", "status": "pending" },
+    { "id": "guest-53-1", "name": "Gustavo Aleixo", "status": "pending" },
+    { "id": "guest-53-2", "name": "Ludimila Fernandes", "status": "pending" },
     { "id": "guest-54", "name": "Giovanna Mariozza", "status": "pending" },
     { "id": "guest-55", "name": "Italo Magalhães", "status": "pending" },
     { "id": "guest-56", "name": "Cecília Diniz de Souza", "status": "pending" },
