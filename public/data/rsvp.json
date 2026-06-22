@@ -19,8 +19,8 @@
     { "id": "guest-16", "name": "Daniel Dutra", "status": "pending" },
     { "id": "guest-17", "name": "Alcides Dutra", "status": "confirmed" },
     { "id": "guest-18", "name": "Patrícia Simoes", "status": "confirmed" },
-    { "id": "guest-19", "name": "Gabriel Dutra", "status": "pending" },
-    { "id": "guest-20", "name": "Letícia Tanure", "status": "pending" },
+    { "id": "guest-19", "name": "Gabriel Dutra", "status": "confirmed" },
+    { "id": "guest-20", "name": "Letícia Tanure", "status": "confirmed" },
     { "id": "guest-21", "name": "Vinicius Dutra", "status": "pending" },
     { "id": "guest-22", "name": "Luiza Rodrigues", "status": "pending" },
     { "id": "guest-23", "name": "Fernanda Dutra", "status": "pending" },
@@ -67,8 +67,8 @@
     { "id": "guest-58", "name": "Tadeu Costa de Souza", "status": "pending" },
     { "id": "guest-59", "name": "Letícia Leite", "status": "confirmed" },
     { "id": "guest-60", "name": "Diego Moreira", "status": "confirmed" },
-    { "id": "guest-61", "name": "Beatriz Azalim", "status": "pending" },
-    { "id": "guest-63", "name": "Tais Alves", "status": "pending" },
+    { "id": "guest-61", "name": "Beatriz Azalim", "status": "confirmed" },
+    { "id": "guest-63", "name": "Tais Alves", "status": "confirmed" },
     { "id": "guest-64", "name": "Wanderson Alves", "status": "declined" },
     { "id": "guest-65", "name": "Acompanhante do Wanderson", "status": "declined" }
   ]
