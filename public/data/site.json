@@ -64,8 +64,8 @@
       "totalValue": 200,
       "quotaCount": 2,
       "quotas": [
-        { "id": "ferro-1", "value": 100, "status": "available" },
-        { "id": "ferro-2", "value": 100, "status": "available" }
+        { "id": "ferro-1", "value": 100, "status": "paid" },
+        { "id": "ferro-2", "value": 100, "status": "paid" }
       ]
     },
     {
