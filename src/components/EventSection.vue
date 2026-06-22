@@ -40,6 +40,10 @@ const photos = [
         <p class="mt-2 text-lg text-stone-700">{{ event.timeLabel }}</p>
         <p class="mt-4 font-medium tracking-wide text-stone-800 uppercase">{{ event.venue }}</p>
         <p class="mt-1 text-stone-600">{{ event.city }}</p>
+        <p v-if="event.dressCode" class="mt-4 text-sm text-stone-600">
+          <span class="text-xs tracking-widest-xl text-olive uppercase">Vestimenta</span>
+          <span class="mt-1 block font-medium text-stone-800">{{ event.dressCode }}</span>
+        </p>
         <a
           :href="event.mapsUrl"
           target="_blank"
