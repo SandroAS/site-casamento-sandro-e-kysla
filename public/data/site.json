@@ -119,8 +119,8 @@
       "totalValue": 290,
       "quotaCount": 2,
       "quotas": [
-        { "id": "cafeteira-1", "value": 145, "status": "available" },
-        { "id": "cafeteira-2", "value": 145, "status": "available" }
+        { "id": "cafeteira-1", "value": 145, "status": "paid" },
+        { "id": "cafeteira-2", "value": 145, "status": "paid" }
       ]
     },
     {
@@ -208,7 +208,7 @@
       "totalValue": 2000,
       "quotaCount": 10,
       "quotas": [
-        { "id": "ninja-creami-1", "value": 200, "status": "available" },
+        { "id": "ninja-creami-1", "value": 200, "status": "paid" },
         { "id": "ninja-creami-2", "value": 200, "status": "available" },
         { "id": "ninja-creami-3", "value": 200, "status": "available" },
         { "id": "ninja-creami-4", "value": 200, "status": "available" },
