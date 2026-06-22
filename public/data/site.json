@@ -209,7 +209,7 @@
       "quotaCount": 10,
       "quotas": [
         { "id": "ninja-creami-1", "value": 200, "status": "paid" },
-        { "id": "ninja-creami-2", "value": 200, "status": "available" },
+        { "id": "ninja-creami-2", "value": 200, "status": "paid" },
         { "id": "ninja-creami-3", "value": 200, "status": "available" },
         { "id": "ninja-creami-4", "value": 200, "status": "available" },
         { "id": "ninja-creami-5", "value": 200, "status": "available" },
