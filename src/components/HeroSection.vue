@@ -10,8 +10,6 @@ defineProps({
 <template>
   <section id="inicio" class="scroll-mt-20 pt-24 pb-16">
     <div class="mx-auto max-w-2xl px-4 text-center">
-      <p class="text-xs tracking-widest-xl text-stone-500 uppercase">Save the Date</p>
-
       <h1 class="font-script mt-3 text-5xl text-stone-900 sm:text-7xl">
         {{ couple.names }}
       </h1>
