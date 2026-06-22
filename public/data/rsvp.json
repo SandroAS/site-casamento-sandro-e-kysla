@@ -30,7 +30,7 @@
     { "id": "guest-27", "name": "Eduardo Abidala", "status": "pending" },
     { "id": "guest-28", "name": "Artur Dutra", "status": "pending" },
     { "id": "guest-29", "name": "André Dutra", "status": "pending" },
-    { "id": "guest-30", "name": "Bárbara Azalim", "status": "pending" },
+    { "id": "guest-30", "name": "Bárbara Azalim", "status": "confirmed" },
     { "id": "guest-31", "name": "Letícia Fernandes", "status": "confirmed" },
     { "id": "guest-32", "name": "Rafael Lima", "status": "confirmed" },
     { "id": "guest-33", "name": "Vitor Fernandes", "status": "pending" },
