@@ -173,7 +173,7 @@
       "totalValue": 3500,
       "quotaCount": 7,
       "quotas": [
-        { "id": "lava-louca-1", "value": 500, "status": "available" },
+        { "id": "lava-louca-1", "value": 500, "status": "paid" },
         { "id": "lava-louca-2", "value": 500, "status": "available" },
         { "id": "lava-louca-3", "value": 500, "status": "available" },
         { "id": "lava-louca-4", "value": 500, "status": "available" },
