@@ -33,7 +33,7 @@
     { "id": "guest-30", "name": "Bárbara Azalim", "status": "confirmed" },
     { "id": "guest-31", "name": "Letícia Fernandes", "status": "confirmed" },
     { "id": "guest-32", "name": "Rafael Lima", "status": "confirmed" },
-    { "id": "guest-33", "name": "Vitor Fernandes", "status": "pending" },
+    { "id": "guest-33", "name": "Vitor Fernandes", "status": "declined" },
     { "id": "guest-34", "name": "Bárbara Azevedo", "status": "confirmed" },
     { "id": "guest-35", "name": "Lucas Fernandes", "status": "confirmed" },
     { "id": "guest-36", "name": "Danielle Azevedo", "status": "confirmed" },
