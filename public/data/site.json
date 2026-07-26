@@ -33,7 +33,19 @@
       "title": "Sofá",
       "image": "/images/gifts/sofa.jpg",
       "totalValue": 2500,
-      "quotaCount": 10
+      "quotaCount": 10,
+      "quotas": [
+        { "id": "sofa-1", "value": 250, "status": "paid" },
+        { "id": "sofa-2", "value": 250, "status": "available" },
+        { "id": "sofa-3", "value": 250, "status": "available" },
+        { "id": "sofa-4", "value": 250, "status": "available" },
+        { "id": "sofa-5", "value": 250, "status": "available" },
+        { "id": "sofa-6", "value": 250, "status": "available" },
+        { "id": "sofa-7", "value": 250, "status": "available" },
+        { "id": "sofa-8", "value": 250, "status": "available" },
+        { "id": "sofa-9", "value": 250, "status": "available" },
+        { "id": "sofa-10", "value": 250, "status": "available" }
+      ]
     },
     {
       "id": "tabua-madeira",
