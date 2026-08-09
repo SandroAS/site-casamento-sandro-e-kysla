@@ -121,8 +121,8 @@
       "totalValue": 120,
       "quotaCount": 2,
       "quotas": [
-        { "id": "talher-churrasco-1", "value": 60, "status": "available" },
-        { "id": "talher-churrasco-2", "value": 60, "status": "available" }
+        { "id": "talher-churrasco-1", "value": 60, "status": "paid" },
+        { "id": "talher-churrasco-2", "value": 60, "status": "paid" }
       ]
     },
     {
