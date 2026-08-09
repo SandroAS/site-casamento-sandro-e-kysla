@@ -174,8 +174,8 @@
       "totalValue": 130,
       "quotaCount": 2,
       "quotas": [
-        { "id": "espatulas-silicone-1", "value": 65, "status": "available" },
-        { "id": "espatulas-silicone-2", "value": 65, "status": "available" }
+        { "id": "espatulas-silicone-1", "value": 65, "status": "paid" },
+        { "id": "espatulas-silicone-2", "value": 65, "status": "paid" }
       ]
     },
     {
