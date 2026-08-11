@@ -65,8 +65,8 @@
       "totalValue": 260,
       "quotaCount": 2,
       "quotas": [
-        { "id": "aspirador-1", "value": 130, "status": "available" },
-        { "id": "aspirador-2", "value": 130, "status": "available" }
+        { "id": "aspirador-1", "value": 130, "status": "paid" },
+        { "id": "aspirador-2", "value": 130, "status": "paid" }
       ]
     },
     {
@@ -187,8 +187,8 @@
       "quotas": [
         { "id": "lava-louca-1", "value": 500, "status": "paid" },
         { "id": "lava-louca-2", "value": 500, "status": "paid" },
-        { "id": "lava-louca-3", "value": 500, "status": "available" },
-        { "id": "lava-louca-4", "value": 500, "status": "available" },
+        { "id": "lava-louca-3", "value": 500, "status": "paid" },
+        { "id": "lava-louca-4", "value": 500, "status": "paid" },
         { "id": "lava-louca-5", "value": 500, "status": "available" },
         { "id": "lava-louca-6", "value": 500, "status": "available" },
         { "id": "lava-louca-7", "value": 500, "status": "available" }
