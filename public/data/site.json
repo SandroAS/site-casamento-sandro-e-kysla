@@ -54,7 +54,7 @@
       "totalValue": 189,
       "quotaCount": 2,
       "quotas": [
-        { "id": "tabua-madeira-1", "value": 94.5, "status": "available" },
+        { "id": "tabua-madeira-1", "value": 94.5, "status": "paid" },
         { "id": "tabua-madeira-2", "value": 94.5, "status": "available" }
       ]
     },
